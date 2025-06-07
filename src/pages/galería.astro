@@ -1,22 +1,223 @@
 ---
-// src/pages/acerca.astro
+// src/pages/galería.astro
 import BaseLayout from "../layouts/BaseLayout.astro";
+
+// Define tus imágenes aquí. Puedes añadir tantas como quieras.
+// Asegúrate de que las rutas (src) sean correctas y apunten a tu carpeta `public`.
+const imagenesGaleria = [
+  {
+    src: "public/1.jpg", // Reemplaza con la ruta real a tu imagen
+    alt: "foto 1",
+    caption: "Un hermoso paisaje montañoso al amanecer.",
+  },
+  {
+    src: "public/2.jpg", // Reemplaza con la ruta real a tu imagen
+    alt: "foto 2",
+    caption: "Arquitectura moderna en la ciudad.",
+  },
+  {
+    src: "public/3.jpg", // Reemplaza con la ruta real a tu imagen
+    alt: "foto 3",
+    caption: "Un primer plano de una flor colorida.",
+  },
+  // Añade más imágenes aquí
+  {
+    src: "public/4.jpg",
+    alt: "foto 4",
+    caption: "Texto descriptivo para la foto 4.",
+  },
+  {
+    src: "public/5.jpg",
+    alt: "foto 5",
+    caption: "Texto descriptivo para la foto 5.",
+  },
+  {
+    src: "public/6.jpg",
+    alt: "foto 6",
+    caption: "Texto descriptivo para la foto 6.",
+  },
+  {
+    src: "public/7.jpg",
+    alt: "foto 7",
+    caption: "Texto descriptivo para la foto 7.",
+  },
+  {
+    src: "public/8.jpg",
+    alt: "foto 8",
+    caption: "Texto descriptivo para la foto 8.",
+  },
+  {
+    src: "public/9.jpg",
+    alt: "foto 9",
+    caption: "Texto descriptivo para la foto 9.",
+  },
+  {
+    src: "public/10.jpg",
+    alt: "foto 10",
+    caption: "Texto descriptivo para la foto 10.",
+  },
+  {
+    src: "public/11.jpg",
+    alt: "foto 11",
+    caption: "Texto descriptivo para la foto 11.",
+  },
+  {
+    src: "public/12.jpg",
+    alt: "foto 12",
+    caption: "Texto descriptivo para la foto 12.",
+  },
+  {
+    src: "public/13.jpg",
+    alt: "foto 13",
+    caption: "Texto descriptivo para la foto 13.",
+  },
+  {
+    src: "public/14.jpg",
+    alt: "foto 14",
+    caption: "Texto descriptivo para la foto 14.",
+  },
+  {
+    src: "public/15.jpg",
+    alt: "foto 15",
+    caption: "Texto descriptivo para la foto 15.",
+  },
+  {
+    src: "public/16.jpg",
+    alt: "foto 16",
+    caption: "Texto descriptivo para la foto 16.",
+  },
+  {
+    src: "public/17.jpg",
+    alt: "foto 17",
+    caption: "Texto descriptivo para la foto 17.",
+  },
+  {
+    src: "public/17.jpg",
+    alt: "foto 17",
+    caption: "Texto descriptivo para la foto 17.",
+  },
+  {
+    src: "public/18.jpg",
+    alt: "foto 18",
+    caption: "Texto descriptivo para la foto 18.",
+  },
+  {
+    src: "public/19.jpg",
+    alt: "foto 19",
+    caption: "Texto descriptivo para la foto 19.",
+  },
+  {
+    src: "public/20.jpg",
+    alt: "foto 20",
+    caption: "Texto descriptivo para la foto 20.",
+  },
+  {
+    src: "public/21.jpg",
+    alt: "foto 21",
+    caption: "Texto descriptivo para la foto 21.",
+  },
+  {
+    src: "public/22.jpg",
+    alt: "foto 22",
+    caption: "Texto descriptivo para la foto 22.",
+  },
+  {
+    src: "public/23.jpg",
+    alt: "foto 23",
+    caption: "Texto descriptivo para la foto 24.",
+  },
+  {
+    src: "public/25.jpg",
+    alt: "foto 25",
+    caption: "Texto descriptivo para la foto 25.",
+  },
+  {
+    src: "public/26.jpg",
+    alt: "foto 26",
+    caption: "Texto descriptivo para la foto 26.",
+  },
+  {
+    src: "public/27.jpg",
+    alt: "foto 27",
+    caption: "Texto descriptivo para la foto 27.",
+  },
+  {
+    src: "public/28.jpg",
+    alt: "foto 28",
+    caption: "Texto descriptivo para la foto 28.",
+  },
+  {
+    src: "public/29.jpg",
+    alt: "foto 29",
+    caption: "Texto descriptivo para la foto 29.",
+  },
+  {
+    src: "public/30.jpg",
+    alt: "foto 30",
+    caption: "Texto descriptivo para la foto 30.",
+  },
+  {
+    src: "public/31.jpg",
+    alt: "foto 31",
+    caption: "Texto descriptivo para la foto 31.",
+  },
+  {
+    src: "public/32.jpg",
+    alt: "foto 32",
+    caption: "Texto descriptivo para la foto 32.",
+  },
+  {
+    src: "public/33.jpg",
+    alt: "foto33",
+    caption: "Texto descriptivo para la foto 33.",
+  },
+  {
+    src: "public/34.jpg",
+    alt: "foto 34",
+    caption: "Texto descriptivo para la foto 34.",
+  },
+];
 ---
 
 <BaseLayout title="galería" description="Bienvenido a mi Galería">
   <section>
-    <h2>¡Hola, Mundo desde Astro!</h2>
-    <p>Este es el contenido específico de la página Galería.</p>
-    <p>Estamos utilizando un layout base para mantener la consistencia.</p>
+    <h2>Nuestra Galería de Imágenes</h2>
+    <p>Explora nuestra colección de momentos capturados.</p>
   </section>
 
   <section>
-    <h3>Algunas características de Astro:</h3>
-    <ul>
-      <li>Componentes UI (React, Vue, Svelte, etc.)</li>
-      <li>Cero JavaScript por defecto</li>
-      <li>Excelente rendimiento</li>
-      <li>Generación de sitios estáticos</li>
-    </ul>
+    <div class="galeria-grid">
+      {
+        imagenesGaleria.map((imagen) => (
+          <div class="galeria-item">
+            <img src={imagen.src} alt={imagen.alt} loading="lazy" />
+            <p>{imagen.caption}</p>
+          </div>
+        ))
+      }
+    </div>
   </section>
 </BaseLayout>
+
+<style>
+  .galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(250px, 1fr)
+    ); /* Columnas responsivas */
+    gap: 1rem; /* Espacio entre imágenes */
+  }
+  .galeria-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px; /* Bordes redondeados opcionales */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil opcional */
+  }
+  .galeria-item p {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: 0.5rem;
+  }
+</style>
