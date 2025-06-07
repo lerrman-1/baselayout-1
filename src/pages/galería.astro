@@ -186,10 +186,10 @@ const imagenesGaleria = [
   </section>
 
   <section>
-    <div class="galeria-grid">
+    <div class="galería-grid">
       {
         imagenesGaleria.map((imagen) => (
-          <div class="galeria-item">
+          <div class="galería-item">
             <img src={imagen.src} alt={imagen.alt} loading="lazy" />
             <p>{imagen.caption}</p>
           </div>
@@ -200,21 +200,21 @@ const imagenesGaleria = [
 </BaseLayout>
 
 <style>
-  .galeria-grid {
+  .galería-grid {
     display: grid;
     grid-template-columns: repeat(
       auto-fit,
-      minmax(250px, 1fr)
+      minmax(200px, 1fr)
     ); /* Columnas responsivas */
     gap: 1rem; /* Espacio entre imágenes */
   }
-  .galeria-item img {
+  .galería-item img {
     width: 100%;
     height: auto;
     border-radius: 8px; /* Bordes redondeados opcionales */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil opcional */
   }
-  .galeria-item p {
+  .galería-item p {
     text-align: center;
     font-size: 0.9rem;
     color: #555;
