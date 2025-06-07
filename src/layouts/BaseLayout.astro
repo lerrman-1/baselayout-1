@@ -1,0 +1,78 @@
+---
+// src/layouts/BaseLayout.astro
+interface Props {
+  title: string;
+  description?: string; // Opcional
+}
+
+const { title, description = "Mi sitio web genial" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title} | Mi Sitio</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        font-family: sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #fff;
+        color: #333;
+      }
+      header {
+        background-color: #191919;
+        color: white;
+        padding: 1rem;
+        text-align: center;
+      }
+      main {
+        padding: 1rem;
+        max-width: 800px;
+        margin: 0 auto;
+        flex: 1;
+      }
+      footer {
+        background-color: #eee;
+        padding: 1rem;
+        text-align: center;
+        margin-top: 2rem;
+      }
+      a {
+        color: #fff;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Mi Sitio Web Astro</h1>
+      <nav>
+        <a href="/">Inicio</a> |
+        <a href="/acerca">Acerca de</a> |
+        <a href="/galería">Galería</a> |
+        <a href="/contacto">Contacto</a>
+      </nav>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer>
+      <p>
+        &copy; {new Date().getFullYear()} Mi Sitio. Todos los derechos reservados.
+      </p>
+    </footer>
+  </body>
+</html>
